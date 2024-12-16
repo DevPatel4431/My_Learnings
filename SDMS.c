@@ -1,3 +1,10 @@
+// Hello Programmers
+// I am author of this code Dev Patel
+// this is open source code of Sutdent Data Management System
+// Time: November 2024
+// Assignment of Computer Programming Subject of 1st Sem in Nirma University
+// Feel Free to Use this Code 
+
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
