@@ -37,7 +37,7 @@ public:
 
     // pure virtual getters
     virtual string getType() const = 0;
-    virtual double getRatePerHour() const = 0;
+    virtual int getRatePerHour() const = 0;
     
     double claculateFee(time_t exitTime) const {
         double hours = difftime(exitTime, entryTime) / 3600.00;
