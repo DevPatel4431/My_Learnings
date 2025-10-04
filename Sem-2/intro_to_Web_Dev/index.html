@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeEvents - Programming Contest Tracker</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>CodeEvents</h1>
+        <p>Your one-stop portal for programming contests and tech events</p>
+        <div
+          class="header-content"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <nav>
+            <ul>
+              <li><a href="#online-contests">Online Contests</a></li>
+              <li><a href="#user-profiles">User Profiles</a></li>
+            </ul>
+          </nav>
+          <div class="auth-buttons">
+            <a href="./signin.html" class="auth-btn">Sign In</a>
+            <a href="./signup.html" class="auth-btn signup">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="online-contests">
+        <h2>Upcoming Online Contests</h2>
+        <div class="contest-list">
+          <div class="contest-card" id="0">
+            <h3>Codeforces Round #789</h3>
+            <div class="contest-info">
+              <p class="type"><strong>Type:</strong> Codeforces</p>
+              <p class="date"><strong>Date:</strong> November 15, 2023</p>
+              <p class="time"><strong>Time:</strong> 20:00 IST</p>
+              <p class="duration"><strong>Duration:</strong> 2 hours</p>
+            </div>
+            <div class="contest-actions">
+              <button class="reminder-btn">Register</button>
+            </div>
+          </div>
+
+          <div class="contest-card" id="1">
+            <h3>Codeforces Round #789</h3>
+            <div class="contest-info">
+              <p class="type"><strong>Type:</strong> Codeforces</p>
+              <p class="date"><strong>Date:</strong> November 15, 2023</p>
+              <p class="time"><strong>Time:</strong> 20:00 IST</p>
+              <p class="duration"><strong>Duration:</strong> 2 hours</p>
+            </div>
+            <div class="contest-actions">
+              <button class="reminder-btn">Register</button>
+            </div>
+          </div>
+
+          <div class="contest-card" id="2">
+            <h3>Codeforces Round #789</h3>
+            <div class="contest-info">
+              <p class="type"><strong>Type:</strong> Codeforces</p>
+              <p class="date"><strong>Date:</strong> November 15, 2023</p>
+              <p class="time"><strong>Time:</strong> 20:00 IST</p>
+              <p class="duration"><strong>Duration:</strong> 2 hours</p>
+            </div>
+            <div class="contest-actions">
+              <button class="reminder-btn">Register</button>
+            </div>
+          </div>
+
+          <div class="contest-card" id="3">
+            <h3>Codeforces Round #789</h3>
+            <div class="contest-info">
+              <p class="type"><strong>Type:</strong> Codeforces</p>
+              <p class="date"><strong>Date:</strong> November 15, 2023</p>
+              <p class="time"><strong>Time:</strong> 20:00 IST</p>
+              <p class="duration"><strong>Duration:</strong> 2 hours</p>
+            </div>
+            <div class="contest-actions">
+              <button class="reminder-btn">Register</button>
+            </div>
+          </div>
+
+          <div class="contest-card" id="4">
+            <h3>Codeforces Round #789</h3>
+            <div class="contest-info">
+              <p class="type"><strong>Type:</strong> Codeforces</p>
+              <p class="date"><strong>Date:</strong> November 15, 2023</p>
+              <p class="time"><strong>Time:</strong> 20:00 IST</p>
+              <p class="duration"><strong>Duration:</strong> 2 hours</p>
+            </div>
+            <div class="contest-actions">
+              <button class="reminder-btn">Register</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="user-profiles">
+        <h2>Your Coding Profiles</h2>
+
+        <!-- Codeforces Profile -->
+        <div class="profile-card codeforces-card">
+          <div class="profile-header CF">
+            <h3>Codeforces Profile</h3>
+            <i class="fas fa-code"
+              ><span class="profile-handle" id="CFHandle"
+                >YourLeetcodeHandle</span
+              ></i
+            >
+          </div>
+          <div class="profile-stats ps1">
+            <div class="stat-item">
+              <div class="stat-value rating">1800</div>
+              <div class="stat-label">Rating</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value rank">Expert</div>
+              <div class="stat-label">Rank</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value probs">250</div>
+              <div class="stat-label">Official Problems Solved</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value frdcnt">35</div>
+              <div class="stat-label">Friend of Count</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value max-rating">1950</div>
+              <div class="stat-label">Max Rating</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LeetCode Profile -->
+        <div class="profile-card leetcode-card">
+          <div class="profile-header LC">
+            <h3>LeetCode Profile</h3>
+            <i class="fas fa-code"
+              ><span class="profile-handle" id="LCHandle"
+                >YourLeetcodeHandle</span
+              ></i
+            >
+          </div>
+          <div class="profile-stats LCprofile">
+            <div class="stat-item">
+              <div class="stat-value" id="LCRating">2100</div>
+              <div class="stat-label">Global Ranking</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="LCProbs">420</div>
+              <div class="stat-label">Problems Solved</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="LCEasy">150</div>
+              <div class="stat-label">Easy Problems</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="LCMid">200</div>
+              <div class="stat-label">Medium Problems</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="LCHard">70</div>
+              <div class="stat-label">Hard Problems</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2023 CodeEvents - Programming Contest Tracker</p>
+      </div>
+    </footer>
+  </body>
+</html>

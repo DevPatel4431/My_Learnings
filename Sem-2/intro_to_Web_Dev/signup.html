@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - CodeEvents</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sign Up</h1>
+      <form id="signup-form" action="index.html" method="get">
+        <div class="form-group">
+          <label>First Name:</label>
+          <input type="text" class="input-field" name="first-name" required />
+          <span class="error">First Name is required</span>
+        </div>
+        <div class="form-group">
+          <label>Last Name:</label>
+          <input type="text" class="input-field" name="last-name" required />
+          <span class="error">Last Name is required</span>
+        </div>
+        <div class="form-group">
+          <label>Username:</label>
+          <input type="text" class="input-field" name="username" required />
+          <span class="error">Username is required</span>
+        </div>
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="email" class="input-field" name="email" required />
+          <span class="error">Enter a valid email</span>
+        </div>
+        <div class="form-group">
+          <label>Password:</label>
+          <input type="password" class="input-field" name="password" required />
+          <span class="error">Password is required</span>
+        </div>
+        <div class="form-group">
+          <label>Confirm Password:</label>
+          <input
+            type="password"
+            class="input-field"
+            name="confirm-password"
+            required
+          />
+          <span class="error">Passwords do not match</span>
+        </div>
+        <div class="form-group">
+          <label>GitHub Handle:</label>
+          <input type="text" class="input-field" name="github-handle" />
+        </div>
+        <div class="form-group">
+          <label>Codeforces Handle:</label>
+          <input type="text" class="input-field" name="codeforces-handle" />
+        </div>
+        <div class="form-group">
+          <label>LeetCode Handle:</label>
+          <input type="text" class="input-field" name="leetcode-handle" />
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="signin.html">Sign In</a></p>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#signup-form").submit(function (event) {
+          let isValid = true;
+          $(".error").hide();
+
+          $(".input-field").each(function () {
+            if ($(this).val().trim() === "") {
+              $(this).siblings(".error").show();
+              isValid = false;
+            }
+          });
+
+          let email = $("input[name='email']").val();
+          let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailPattern.test(email)) {
+            $("input[name='email']").siblings(".error").show();
+            isValid = false;
+          }
+
+          let password = $("input[name='password']").val();
+          let confirmPassword = $("input[name='confirm-password']").val();
+          if (password !== confirmPassword) {
+            $("input[name='confirm-password']").siblings(".error").show();
+            isValid = false;
+          }
+
+          if (!isValid) {
+            event.preventDefault();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
