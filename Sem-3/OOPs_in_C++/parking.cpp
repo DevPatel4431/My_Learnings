@@ -54,7 +54,7 @@ public:
 
     int findNearestSpot() {
         for(int i=1; i<=totalSpots; i++) {
-            if(!spots[i].isOccupied()) return i;
+            if(!spots[i-1].isOccupied()) return i-1;
         }
         return -1;
     }
@@ -97,7 +97,7 @@ public:
 
         // Calculating Fees
         time_t exitTime = time(nullptr);
-        double fees = v->claculateFee(exitTime);
+        double fees = v->calculateFee(exitTime);
 
         // printing details
         cout << "Vehicle " << v->getPlateNumber() << " (" << v->getType() << ") exited." << endl;
@@ -106,7 +106,59 @@ public:
         cout << fixed << setprecision(2);
         cout << "Parking Fee: ₹" << fees << endl;
 
-        saveRecordToFile(*v, exitTime, fees);
+        saveParkingRecordsToFile(*v, exitTime, fees);
         return true;
+    }
+
+    void showStatus() const {
+        cout << "Parking Lot Status: " << endl;
+        cout << "Spot\tStatus\t\tVehicle" << endl;
+
+        for(const auto& spot : spots) {
+            cout << spot.getSpotNumber() << "\t";
+            if(spot.isOccupied()) {
+                const Vehicle* v = spot.getVehicle();
+                cout << "Occupied\t" << v->getPlateNumber() << " (" << v->getType() << ")" << endl;
+            }
+            else {
+                cout << "Available\t-" << endl;
+            }
+        }
+    }
+
+    void saveCurrentVehiclesToFile() const {
+        ofstream ofs("parking_records.txt", ios::app);
+        if(!ofs) {
+            cerr << "Error Opening the file. " << endl;
+            return;
+        }
+    }
+
+    // Load parking records from file and display
+    void viewParkingHistory() const {
+        ifstream ifs("parking_records.txt");
+        if(!ifs) {
+            cout << "No parking history found.\n";
+            return;
+        }
+        cout << "Parking History:" << endl;
+        string line;
+        while(getline(ifs, line)) {
+            cout << line << endl;
+        }
+    }
+
+private:
+    void saveParkingRecordsToFile(const Vehicle &v, time_t exitTime, double fees) {
+        ofstream ofs("parking_records.txt", ios::app);
+        if(!ofs) {
+            cerr << "Error opening file for saving record.\n";
+            return;
+        }
+        ofs << "Plate: " << v.getPlateNumber()
+            << ", Type: " << v.getType()
+            << ", Entry: " << formateTime(v.getEntryTime())
+            << ", Exit: " << formateTime(exitTime)
+            << ", Fees: ₹" << fixed << setprecision(2) << fees << '\n';
     }
 };

@@ -3,6 +3,7 @@
 class Bike : public Vehicle {
 public:
     Bike(string plate) : Vehicle(plate) {}
+    Bike(string plate, time_t t) : Vehicle(plate, t) {}
 
     string getType() const override {
         return "Bike";
@@ -16,6 +17,7 @@ public:
 class Car : public Vehicle {
 public:
     Car(string plate) : Vehicle(plate) {}
+    Car(string plate, time_t t) : Vehicle(plate, t) {}
 
     string getType() const override {
         return "Car";
@@ -29,6 +31,7 @@ public:
 class Truck : public Vehicle {
 public:
     Truck(string plate) : Vehicle(plate) {}
+    Truck(string plate, time_t t) : Vehicle(plate, t) {}
 
     string getType() const override {
         return "Truck";
