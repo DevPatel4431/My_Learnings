@@ -1,6 +1,8 @@
 #include<iostream>
 #include<string>
-#include <ctime>
+#include<ctime>
+#include<vector>
+#include<unordered_map>
 using namespace std;
 
 // members
@@ -56,4 +58,6 @@ public:
     bool operator==(const Vehicle &other) const {
         return entryTime == other.entryTime;
     }
+
+    static unique_ptr<Vehicle> makeVehicle(const string &plate, const string &type, time_t entry);
 };

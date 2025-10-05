@@ -38,3 +38,11 @@ public:
         return 100;
     }
 };
+
+// static function for unique pointer to store in vector
+unique_ptr<Vehicle> Vehicle::makeVehicle(const string &plate, const string &type, time_t entry) {
+    if(type == "Car") return make_unique<Car>(plate, entry);
+    else if(type == "Bike") return make_unique<Bike>(plate, entry);
+    else if(type == "Truck") return make_unique<Truck>(plate, entry);
+    return nullptr;
+}
