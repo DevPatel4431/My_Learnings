@@ -1,5 +1,13 @@
 #include "child.cpp"
 
+string formateTime(time_t t) {
+    char buffer[26];
+    ctime_s(buffer, sizeof(buffer), &t);
+    string s(buffer);
+    s.pop_back();
+    return s;
+}
+
 class parkingSpot {
     int spotNumber;
     bool occupied;
@@ -68,5 +76,37 @@ public:
             return true;
         }
         return false;
+    }
+
+    bool removeVehicle(const string &plate) {
+        auto it = plateToSpot.find(plate);
+
+        if(it == plateToSpot.end()) {
+            cout << "Vehicle with plate " << plate << " not found." << endl;
+            return false;
+        }
+
+        int idx = it->second;
+        unique_ptr<Vehicle> v = spots[idx].removeVehicle();
+
+        if(!v) {
+            cout << "Error removing vehicle" << endl;
+            return false;
+        }
+        plateToSpot.erase(it);
+
+        // Calculating Fees
+        time_t exitTime = time(nullptr);
+        double fees = v->claculateFee(exitTime);
+
+        // printing details
+        cout << "Vehicle " << v->getPlateNumber() << " (" << v->getType() << ") exited." << endl;
+        cout << "Entry time " << formateTime(v->getEntryTime()) << endl;
+        cout << "Exit time " << formateTime(exitTime) << endl;
+        cout << fixed << setprecision(2);
+        cout << "Parking Fee: ₹" << fees << endl;
+
+        saveRecordToFile(*v, exitTime, fees);
+        return true;
     }
 };
