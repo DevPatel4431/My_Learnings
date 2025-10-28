@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Structure Visualizer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>File Structure Visualizer</h1>
+        <p>
+          Enter file paths and visualize them as a hierarchical tree structure
+        </p>
+      </header>
+
+      <div class="main-content">
+        <div class="input-section">
+          <h2>Input Paths</h2>
+          <div class="input-form">
+            <input
+              type="text"
+              id="path-input"
+              placeholder="e.g., C/user/Dev/coding/demo.cpp"
+            />
+            <button id="add-btn">Add Path</button>
+          </div>
+          <p class="instructions">
+            Enter file paths separated by slashes (/) and click Add Path to
+            visualize the structure.
+          </p>
+
+          <div class="paths-list">
+            <h3>Added Paths:</h3>
+            <div id="paths-container"></div>
+          </div>
+        </div>
+
+        <div class="visualization-section">
+          <h2>File Tree Visualization</h2>
+          <div class="tree-container">
+            <div id="file-tree" class="file-tree">
+              <div class="empty-state">
+                No paths added yet. Enter some paths to see the tree structure.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
